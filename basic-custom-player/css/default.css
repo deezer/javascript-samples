@@ -1,0 +1,47 @@
+
+a {
+    font-family: Arial, Verdana, sans-serif;
+    line-height: 1.4em;
+    color: #3995cd;
+}
+
+body {
+    margin:0;
+    padding-left: 40px;
+    height: 100%;
+    font-family: Century Gothic, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: Century Gothic, sans-serif;
+    color: #bbb;
+}
+
+h1{
+    font-size: 2em; 
+}
+
+#container {
+    margin:0;
+    padding: 0px;
+    height: 100%;
+}
+
+input[type="button"]
+{
+    margin-top: 10px;
+    background-color: #3995cd;
+    text-align: center;
+    vertical-align: middle;
+    border: none;   
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: 'Segoe UI' Arial;
+    position: relative;
+    color: #fff;
+}
+
+
+.player-button {
+    display: inline-block;
+}

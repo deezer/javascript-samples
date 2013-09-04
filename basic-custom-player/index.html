@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Custom Player with Deezer JavaScript SDK</title>
+    <link rel="stylesheet" href="css/default.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+
+    <!-- Loading the Deezer SDK -->
+	<script type="text/javascript" src="http://cdn-files.deezer.com/js/min/dz.js"></script>
+<!-- OR -->
+<!--<script type="text/javascript" src="https://cdns-files.deezer.com/js/min/dz.js"></script>  -->
+
+    <!-- Custom Scripts -->
+    <script type="text/javascript" src="/lib/tools.js"></script>
+
+    
+</head>
+
+
+<body>
+
+    <h1>Get Started</h1>
+    <p>
+    Register your app on <a href='http://developers.Deezer.com' target='_blank'>Deezer Developers website</a>. 
+    You will need an application ID to initialize the Deezer player.
+    </p>
+    <p>
+    Follow us on <a href='http://twitter.com/deezerdevs' target='_blank'> Twitter</a> 
+     to get SDK updates.
+    </p>
+
+    <h1>Deezer Custom Player</h1>
+    Only logged Deezer Premium users get full-track access, please login to get more than 30 seconds previews.
+    <br/>
+    <input type="button" onclick="login();" value="Login" />
+
+     <div id="dz-root"></div>
+<!--    <div id="player" style="width:100%;"></div>-->
+    <script>
+        DZ.init({
+            appId: 'YOUR_APP_ID',
+            channelUrl: 'http://YOUR_DOMAIN/channel.html',
+            player: {
+                onload: function () { 
+                    //configure the player with a set of tracks
+                    //autoplay set to false
+                    DZ.player.playAlbum(2962681, false);
+
+                    //DZ.player.playPlaylist(484767873);
+                    //DZ.player.playTracks(['68973465']);
+                }
+            }
+        });
+
+    </script>
+    <br/>
+
+    <div id="container">
+        <!-- To use these methods, the player has to first be loaded with one of the following methods:
+            DZ.player.playPlaylist
+            DZ.player.playAlbum
+            DZ.player.playRadio
+            DZ.player.playSmartRadio
+            DZ.player.playTracks -->
+
+        <!-- Previous track -->
+        <input class="player-button" type="button" onclick="DZ.player.prev();" value="Prev"/> 
+        <!-- Play -->
+        <input class="player-button" type="button" onclick="DZ.player.play();" value="Play"/>
+        <!-- Pause -->
+         <input class="player-button" type="button" onclick="DZ.player.pause();" value="Pause"/> 
+        <!-- Next -->
+         <input class="player-button" type="button" onclick="DZ.player.next();" value="Next"/>
+    </div>
+    <br/>
+    Yes, I know that this player is ugly. Please show me what you guys can do :)
+
+    <h1> Sample Actions</h1>
+    Have a look at the /lib/tools.js file to check all the following calls
+
+    <h2>Editorial</h2>
+    <h3>Get the Deezer team selection</h3>
+    <p>
+    Get all the Deezer team selection for a given genre, available for the current country (based on geoIP), for a specific genre ID <br/>
+    GET https://api.deezer.com/2.0/editorial/6/selection
+    </p>
+    <input type="button" onclick="getEditoSelection(3);" value="Get and play edito selection"/> 
+
+  <h2>Search Deezer catalog</h2>
+    <h3>Search for an artist</h3>
+    <p>
+    GET https://api.deezer.com/2.0/search?q=the doors
+    </p>
+    <input type="button" onclick="search('skrillex');" value="Search"/> 
+
+    <h2>Albums</h2> 
+
+    <h3>Get an album cover</h3>
+    <p>
+    Examples: <br/>
+    GET https://api.deezer.com/2.0/album/2962681/image&size=small >> 50 px<br/>
+    GET https://api.deezer.com/2.0/album/2962681/image&size=medium >> 120 px<br/>
+    GET https://api.deezer.com/2.0/album/2962681/image&size=big   >> 400 px<br/>
+    </p>
+
+    <input type="button" onclick="getAlbumCover(2962681);" value="Get album cover"/>
+    <div style='height:50px;'>
+        <img id='preview' />
+    </div>
+
+    <h3>Favorite an album</h3>
+    <p>
+    !! manage_library permission required <br/>
+
+    POST https://api.deezer.com/2.0/user/me/albums + album_id + access_token
+    </p>
+
+    <input type="button" onclick="favoriteAlbum(2962681);" value="Favorite album"/>
+
+
+</body>
+</html>
