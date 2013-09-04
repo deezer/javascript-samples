@@ -1,0 +1,290 @@
+/* Vladimir Kosmala @ Deezer, Licence Apache */
+
+/* --------------------------------------------
+	COMMON
+-------------------------------------------- */
+
+.app {
+	font-size: 14px;
+	font-family: Verdana, HelveticaNeue, Droid Sans, Arial, Sans-Serif;
+	cursor: default;
+	background: rgb(250, 250, 250);
+	color: rgb(123, 123, 123);
+}
+.inline {
+	display: inline-block;
+	vertical-align: top;
+}
+.clear {
+	clear: both;
+}
+
+td {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 140px;
+}
+
+a {
+	color: #A5A5A5;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+h3 {
+	font-size: 3em;
+	color: #E4E2E2;
+	margin-bottom: 0;
+}
+h4 {
+	font-size: 1.5em;
+	margin-bottom: 0;
+	color: #A5A5A5;
+}
+
+/* --------------------------------------------
+	HEADER PLAYER
+-------------------------------------------- */
+
+#header {
+	background: rgb(244, 244, 244);
+	width: 100%;
+	height: 80px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+	#controls {
+		width: 170px;
+		height: 80px;
+		float: left;
+		opacity: 0.2;
+	}
+		#controls_inner {
+			padding: 20px 10px 0 10px;
+			text-align: center;
+		}
+			.ctn_btn {
+				border: 0;
+				cursor: pointer;
+				margin: 0 3px;
+			}
+
+	#search {
+		width: 260px;
+		height: 80px;
+		float: left;
+		text-align: center;
+	}
+		#search_input {
+			width: 193px;
+			background: #fff;
+			border: 0;
+			margin: 24px 25px;
+			padding: 6px;
+			font-size: 100%;
+		}
+
+	#cover {
+		height: 80px;
+		float: left;
+	}
+
+	#playing {
+		width: 410px;
+		height: 80px;
+		float: left;
+		float: left;
+		border-left: 1px solid #E5E5E5;
+		border-right: 1px solid #E5E5E5;
+	}
+		#playing_meta {
+			font-size: 14px;
+			text-align: center;
+			margin-top: 8px;
+		}
+			#playing_author {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			#playing_title {
+				font-size: 12px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.meta_link {
+				text-decoration: none;
+				color: rgb(123, 123, 123);
+			}
+			.meta_link:hover {
+				text-decoration: underline;
+			}
+
+		#slider {
+			background: rgb(229, 229, 229);
+			height: 5px;
+			margin-left: 45px;
+			margin-right: 45px;
+			cursor: pointer;
+		}
+			#progress {
+				background: #fff;
+				height: 5px;
+				width: 0%;
+				position: relative;
+			}
+				#progress_hand {
+					position: absolute;
+					background: rgb(130,130,130);
+					width: 7px;
+					height: 7px;
+					right: -3px;
+					border-radius: 5px;
+					bottom: -1px;
+				}
+		#times {
+			margin-top: 10px;
+			font-size: 12px;
+		}
+			#time_current {
+				width: 40px;
+				float: left;
+				text-align: right;
+				margin-top: -7px;
+			}
+			#time_total {
+				width: 40px;
+				float: right;
+				text-align: left;
+				margin-top: -7px;
+			}
+
+@media screen and (max-width: 950px) {
+	#cover {
+		display: none;
+	}
+}
+@media screen and (max-width: 860px) {
+	#search {
+		display: none;
+	}
+}
+@media screen and (max-width: 600px) {
+	#playing {
+		display: none;
+	}
+}
+
+/* --------------------------------------------
+	MENU
+-------------------------------------------- */
+
+#menu {
+	margin-bottom: 15px;
+}
+	.link_tabs {
+		color: #E5E5E5;
+		color: #A5A5A5;
+		text-decoration: none;
+		padding: 0 3px;
+	}
+
+	.link_tabs.active {
+		color: #fff;
+		background: #B6B6B6;
+		border-radius: 3px;
+	}
+
+/* --------------------------------------------
+	MAIN CONTENT
+-------------------------------------------- */
+
+#wrapper {
+	padding-top: 90px;
+}
+	#content {
+		padding: 0 15px;
+	}
+
+		/* Effect on showing covers */
+
+		.cover {
+			opacity: 0.1;
+			transition: opacity 0.2s ease-in-out;
+		}
+
+		/* Default big centered message */
+
+		.loader {
+			display: table;
+			width: 100%;
+			height: 200px;
+		}
+			.loader_content {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				font-size: 3em;
+				color: #E4E4E4;
+			}
+				.login_link {
+					border: 3px solid #E4E4E4;
+					border-radius: 10px;
+				}
+
+		/* Grid of covers */
+
+		.grid_list_small {
+			margin: 10px;
+			width: 120px;
+			display: inline-block;
+		}
+		.grid_list {
+			margin: 20px;
+			width: 160px;
+		}
+			.grid_title {
+				text-overflow:ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
+				text-align: center;
+			}
+
+		/* Two parts cover + tracks list */
+
+		.album_cover_view {
+			float: left;
+			width: 30%;
+			margin-left: 2%;
+			margin-right: 2%;
+		}
+		.album_track_list {
+			background: #fff;
+			float: left;
+			width: 65.8%;
+		}
+			.table_tracks {
+				width: 100%;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			.table_tracks tr:nth-child(odd) {
+				background: rgb(244, 244, 244);
+			}
+			.table_tracks td {
+				padding: 4px;
+			}
+				.link_track:hover {
+					text-decoration: underline;
+					cursor: hand;
+				}
+
+
+
+
+
+
+
