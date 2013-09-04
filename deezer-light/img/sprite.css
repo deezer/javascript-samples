@@ -1,0 +1,6 @@
+.sprite{ background:url("sprite.png") top left no-repeat; }
+.btn_play{ width:38px; height:38px; background-position:-10px -10px; }
+.btn_pause{ width:38px; height:38px; background-position:-10px -58px; }
+.btn_next{ width:29px; height:38px; background-position:-10px -106px; }
+.btn_prev{ width:29px; height:38px; background-position:-10px -154px; }
+
